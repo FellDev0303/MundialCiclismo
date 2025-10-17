@@ -44,5 +44,13 @@ public class Persona {
         this.pais = pais;
     }
 
+    public String obtenerDatos() {
+        return "Nombre: " + nombre + ", Edad: " + edad + ", País: " + pais;
+    }
+
+    @Override
+    public String toString() {
+        return obtenerDatos();
+    }
 
 }
