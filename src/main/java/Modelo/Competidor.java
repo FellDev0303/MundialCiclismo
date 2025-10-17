@@ -43,4 +43,4 @@ public class Competidor extends Persona {
     public void setRankingMundial(int rankingMundial) {
         this.rankingMundial = rankingMundial;
     }  
-}
+} 
