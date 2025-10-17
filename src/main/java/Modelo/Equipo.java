@@ -41,5 +41,16 @@ public class Equipo {
         return contadorCompetidores;
     }
 
+    public String obtenerDatosEquipo() {
+        return "Equipo: " + nombre + " | País: " + pais;
+    }
+
+    public String listarCompetidores() {
+        String datos = "";
+        for (int i = 0; i < contadorCompetidores; i++) {
+            datos += (i + 1) + ". " + competidores[i].toString() + "\n";
+        }
+        return datos.isEmpty() ? "No hay competidores registrados.\n" : datos;
+    }
 
 }
