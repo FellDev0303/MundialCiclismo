@@ -30,4 +30,30 @@ public class ControladorCompetencia {
         }
     }
 
+    public void registrarCompetidor() {
+        if (competencia.getContadorEquipos() == 0) {
+            JOptionPane.showMessageDialog(null, "Debe registrar al menos un equipo primero.");
+            return;
+        }
+
+        String nombre = JOptionPane.showInputDialog("Nombre del competidor:");
+        int edad = Integer.parseInt(JOptionPane.showInputDialog("Edad:"));
+        String pais = JOptionPane.showInputDialog("País:");
+        int ranking = Integer.parseInt(JOptionPane.showInputDialog("Ranking mundial actual:"));
+        double estatura = Double.parseDouble(JOptionPane.showInputDialog("Estatura (m):"));
+        double peso = Double.parseDouble(JOptionPane.showInputDialog("Peso (kg):"));
+
+        Competidor c = new Competidor(nombre, edad, pais, ranking, estatura, peso);
+        String listaEquipos = competencia.listarEquipos();
+        int indice = Integer.parseInt(JOptionPane.showInputDialog("Seleccione equipo (índice):\n" + listaEquipos));
+
+        boolean agregado = competencia.agregarCompetidorAEquipo(indice, c);
+
+        if (agregado) {
+            JOptionPane.showMessageDialog(null, "Competidor agregado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se pudo agregar el competidor.");
+        }
+    }
+
 }
