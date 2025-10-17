@@ -37,5 +37,10 @@ public class Competencia {
         }
         return null;
     }
-
+    public boolean agregarCompetidorAEquipo(int indice, Competidor c) {
+        if (indice >= 0 && indice < contadorEquipos) {
+            return equipos[indice].agregarCompetidor(c);
+        }
+        return false;
+    }
 }
