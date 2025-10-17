@@ -43,4 +43,33 @@ public class Competidor extends Persona {
     public void setRankingMundial(int rankingMundial) {
         this.rankingMundial = rankingMundial;
     }  
+    // Sobrecarga de métodos para actualizar ranking
+    public void actualizarRanking(int puntosGanados) {
+        puntosTotales += puntosGanados;
+        rankingMundial -= puntosGanados / 10;
+        if (rankingMundial < 1) {
+            rankingMundial = 1;
+        }
+    }
+
+    public void actualizarRanking(double puntosGanados) {
+        puntosTotales += (int) puntosGanados;
+        rankingMundial -= (int) (puntosGanados / 5);
+        if (rankingMundial < 1) {
+            rankingMundial = 1;
+        }
+    }
+
+    @Override
+    public String obtenerDatos() {
+        return super.obtenerDatos()
+                + ", Ranking: " + rankingMundial
+                + ", Puntos: " + puntosTotales
+                + ", Estatura: " + estatura + "m, Peso: " + peso + "kg";
+    }
+
+    @Override
+    public String toString() {
+        return "Competidor -> " + obtenerDatos();
+    }
 } 
