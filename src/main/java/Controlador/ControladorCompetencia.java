@@ -80,4 +80,13 @@ public class ControladorCompetencia {
         JOptionPane.showMessageDialog(null, "Puntos asignados y ranking actualizado.");
     }
 
+    public void mostrarReporte() {
+        JOptionPane.showMessageDialog(null, competencia.generarReporte());
+    }
+
+    public void salir() {
+        JOptionPane.showMessageDialog(null, "Gracias por usar el sistema del Mundial de Ciclismo. ¡Hasta pronto!");
+        System.exit(0);
+    }
+
 }
