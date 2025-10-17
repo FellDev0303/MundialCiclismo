@@ -43,4 +43,27 @@ public class Competencia {
         }
         return false;
     }
+     public String listarEquipos() {
+        if (contadorEquipos == 0) {
+            return "No hay equipos registrados.";
+        }
+        String lista = "";
+        for (int i = 0; i < contadorEquipos; i++) {
+            lista += i + ". " + equipos[i].obtenerDatosEquipo() + "\n";
+        }
+        return lista;
+    }
+
+    public String generarReporte() {
+        if (contadorEquipos == 0) {
+            return "No hay equipos registrados.";
+        }
+        String reporte = "=== REPORTE DEL " + nombreCompetencia.toUpperCase() + " ===\n";
+        reporte += "Sede: Velódromo Alcides Nieto Patiño - Santiago de Cali\n\n";
+        for (int i = 0; i < contadorEquipos; i++) {
+            reporte += equipos[i].obtenerDatosEquipo() + "\n";
+            reporte += equipos[i].listarCompetidores() + "\n";
+        }
+        return reporte;
+    }
 }
