@@ -56,4 +56,28 @@ public class ControladorCompetencia {
         }
     }
 
+    public void asignarPuntos() {
+        if (competencia.getContadorEquipos() == 0) {
+            JOptionPane.showMessageDialog(null, "No hay equipos registrados.");
+            return;
+        }
+
+        String listaEquipos = competencia.listarEquipos();
+        int indiceEq = Integer.parseInt(JOptionPane.showInputDialog("Seleccione equipo:\n" + listaEquipos));
+        Equipo eq = competencia.getEquipo(indiceEq);
+
+        if (eq == null || eq.getContadorCompetidores() == 0) {
+            JOptionPane.showMessageDialog(null, "Este equipo no tiene competidores registrados.");
+            return;
+        }
+
+        String listaComp = eq.listarCompetidores();
+        int indiceComp = Integer.parseInt(JOptionPane.showInputDialog("Seleccione competidor:\n" + listaComp));
+        Competidor comp = eq.getCompetidor(indiceComp - 1);
+
+        int puntos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese los puntos obtenidos:"));
+        comp.actualizarRanking(puntos);
+        JOptionPane.showMessageDialog(null, "Puntos asignados y ranking actualizado.");
+    }
+
 }
